@@ -266,6 +266,11 @@ code that used *DIPlib* or *DIPimage* to the new version.
   in multiple dimensions at the same time. `dip::Rotation` now works for any number of dimensions,
   though it only rotates around one cartesian axis.
 
+- `dip::Rotation` and dependent functions now rotate around the pixel that is right from center
+  (the same pixel that is assumed the origin in `dip::FourierTransform` and other functions),
+  instead of the point in between pixels, in case of an even-sized image. The implementation is
+  slightly more complex, but this definition is more useful.
+
 - `dip::FindShift` now returns the shift with inverse sign compared to before, to match the reversal
   in `dip::Shift`.
 
@@ -278,6 +283,8 @@ code that used *DIPlib* or *DIPimage* to the new version.
 - Lots of new algorithms, some previously only available in *DIPimage*.
   - New morphological functions: `dip::HMaxima`, `dip::HMinima`, `dip::OpeningByReconstruction`,
     and `dip::ClosingByReconstruction`, `dip::ConditionalThickening2D`, `dip::ConditionalThinning2D`.
+  - `dip::Canny` and `dip::MaximumSuppression` have been generalized from 2D only to any number of
+    dimensions.
   - TODO: try to list them all!
 
 [//]: # (--------------------------------------------------------------)
